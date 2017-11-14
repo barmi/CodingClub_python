@@ -1,14 +1,17 @@
-from Tkinter import *
+# base source : https://stackoverflow.com/questions/29158220/tkinter-understanding-mainloop
+# tkinter ref : http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html
+from tkinter import *
 import random
 import time
 
 root = Tk()
 root.title = "Game"
-root.resizable(0,0)
-root.wm_attributes("-topmost", 1)
+#root.resizable(0,0)
+#root.wm_attributes("-topmost", 1)
 
 canvas = Canvas(root, width=500, height=400, bd=0, highlightthickness=0)
 canvas.pack()
+
 
 class Ball:
     def __init__(self, canvas, color):
@@ -29,8 +32,6 @@ class Ball:
     def draw(self):
         self.canvas.move(self.id, 0, -1)
         self.canvas.after(50, self.draw)
-
-
 
 
 ball = Ball(canvas, "red")
